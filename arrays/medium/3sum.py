@@ -1,5 +1,5 @@
 class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
+    def threeSum(self, nums):
         """Gets an array of ints and returns a array of 
         arrays whose sum is zero."""
         n = len(nums)
@@ -18,7 +18,7 @@ class Solution:
 
                 for k in range(n): 
                     # Check for the sum 
-                    if nums[i] + nums[j] + nums[k] == 0 and i != j != k: 
+                    if nums[i] + nums[j] + nums[k] == 0 and i != j and j != k and k != i: 
                         exists = False 
                         array = [nums[i], nums[j], nums[k]]
 
@@ -42,4 +42,14 @@ class Solution:
                         if not exists: 
                             results.append(array)
 
-        return results 
+        return results  
+
+
+def main(): 
+    s = Solution()
+    result0 = s.threeSum([0,3,0,1,1,-1,-5,-5,3,-3,-3,0])
+    print(result0)
+
+
+if __name__ == '__main__': 
+    main()
